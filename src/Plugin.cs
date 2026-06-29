@@ -17,7 +17,10 @@ namespace PrestigeManager
 
             ConfigManager.Load();
 
-            new PrestigeTransferItemsStatePatch().Enable();
+            new PrestigeTransferItemsStateInitPatch().Enable();
+            new PrestigeTransferItemsStateSizePatch().Enable();
+            new PrestigeTransferItemsStateFilterPatch().Enable();
+            new PrestigeTransferItemsStateClosePatch().Enable();
 
             Log.LogInfo("PrestigeManager loaded successfully.");
         }

@@ -142,3 +142,4 @@ H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\netstandar
 H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\netstandard2.1\PrestigeManager.dll
 H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\netstandard2.1\PrestigeManager.pdb
 H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\bin\Debug\netstandard2.1\config\prestige_config.json
+H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\netstandard2.1\PrestigeManager.sourcelink.json
