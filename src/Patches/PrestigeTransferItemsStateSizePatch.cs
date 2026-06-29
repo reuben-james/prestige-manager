@@ -16,7 +16,7 @@ namespace PrestigeManager.Patches
         }
 
         [PatchPostfix]
-        static void Postfix(PrestigeTransferItemsState __instance)
+        static void Postfix(PrestigeTransferItemsState __instance, ref StashItemClass __result)
         {
             int prestigeLevel = PrestigeTransferStateContext.GetLevel(__instance);
             var levelConfig = ConfigManager.GetLevelConfig(prestigeLevel);
@@ -31,7 +31,7 @@ namespace PrestigeManager.Patches
                 return;
             }
 
-            if (__instance == null || __instance.StashConfig == null || __instance.FakeController == null)
+            if (__instance == null || __instance.StashConfig == null || __result == null)
             {
                 Plugin.Log.LogWarning("PrestigeManager: Missing state objects for size patch.");
                 return;
@@ -42,24 +42,6 @@ namespace PrestigeManager.Patches
                 int width = levelConfig.XCellCount ?? __instance.StashConfig.Size.x;
                 int height = levelConfig.YCellCount ?? __instance.StashConfig.Size.y;
 
-                var fakeControllerType = __instance.FakeController.GetType();
-                var stashField = AccessTools.Field(fakeControllerType, "_stash")
-                              ?? AccessTools.Field(fakeControllerType, "Stash")
-                              ?? AccessTools.Field(fakeControllerType, "stash");
-
-                if (stashField == null)
-                {
-                    Plugin.Log.LogWarning("PrestigeManager: Could not find stash field on FakeController.");
-                    return;
-                }
-
-                var fakeStash = stashField.GetValue(__instance.FakeController) as StashItemClass;
-                if (fakeStash == null)
-                {
-                    Plugin.Log.LogWarning("PrestigeManager: FakeController stash is null or not StashItemClass.");
-                    return;
-                }
-
                 var newGrid = new GClass3116(
                     "transferGrid",
                     width,
@@ -67,17 +49,17 @@ namespace PrestigeManager.Patches
                     false,
                     false,
                     Array.Empty<ItemFilter>(),
-                    fakeStash,
+                    __result,
                     true);
 
-                fakeStash.Grids = new StashGridClass[]
+                __result.Grids = new StashGridClass[]
                 {
                     newGrid
                 };
 
                 __instance.TransferGrid = newGrid;
 
-                Plugin.Log.LogInfo($"PrestigeManager: Rebuilt transfer grid to {width}x{height}.");
+                Plugin.Log.LogInfo($"PrestigeManager: Rebuilt transfer grid to {width}x{height} using method_3 result stash.");
             }
             catch (Exception ex)
             {

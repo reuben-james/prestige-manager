@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PrestigeManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36fbcea4350f5814fd51d417cee16926738b1991")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44965470e2b45a7b84cab764321ddb415b3b3718")]
 [assembly: System.Reflection.AssemblyProductAttribute("PrestigeManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PrestigeManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
