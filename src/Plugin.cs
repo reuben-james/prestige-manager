@@ -22,6 +22,13 @@ namespace PrestigeManager
             new PrestigeTransferItemsStateFilterPatch().Enable();
             new PrestigeTransferItemsStateClosePatch().Enable();
 
+            new PrestigeTransferItemsStateMethod2DebugPatch().Enable();
+            new PrestigeTransferItemsStateToggleSelectionDebugPatch().Enable();
+            new PrestigeTransferGridRuntimeTypeProbePatch().Enable();
+            new PrestigeTransferItemsStateDebugMethodsPatch().Enable();
+
+            new PrestigeTransferArenaGridCanAcceptPatch().Enable();
+
             Log.LogInfo("PrestigeManager loaded successfully.");
         }
     }

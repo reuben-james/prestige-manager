@@ -1,40 +1,50 @@
-using System.Collections.Generic;
-using EFT.UI;
+using System.Runtime.CompilerServices;
 
 namespace PrestigeManager.Patches
 {
     internal static class PrestigeTransferStateContext
     {
-        private static readonly Dictionary<PrestigeTransferItemsState, int> LevelsByState = new();
+        private static readonly ConditionalWeakTable<object, LevelHolder> Table = new();
 
-        public static void SetLevel(PrestigeTransferItemsState state, int prestigeLevel)
+        public static void SetLevel(object instance, int level)
         {
-            if (state == null)
+            if (instance == null)
             {
                 return;
             }
 
-            LevelsByState[state] = prestigeLevel;
+            Table.Remove(instance);
+            Table.Add(instance, new LevelHolder(level));
         }
 
-        public static int GetLevel(PrestigeTransferItemsState state)
+        public static int GetLevel(object instance)
         {
-            if (state == null)
+            if (instance == null)
             {
                 return 0;
             }
 
-            return LevelsByState.TryGetValue(state, out var level) ? level : 0;
+            return Table.TryGetValue(instance, out var holder) ? holder.Level : 0;
         }
 
-        public static void ClearLevel(PrestigeTransferItemsState state)
+        public static void ClearLevel(object instance)
         {
-            if (state == null)
+            if (instance == null)
             {
                 return;
             }
 
-            LevelsByState.Remove(state);
+            Table.Remove(instance);
+        }
+
+        private sealed class LevelHolder
+        {
+            public int Level { get; }
+
+            public LevelHolder(int level)
+            {
+                Level = level;
+            }
         }
     }
 }
