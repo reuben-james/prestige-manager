@@ -1,9 +1,0 @@
-H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\net472\PrestigeManager.csproj.AssemblyReference.cache
-H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\net472\PrestigeManager.GeneratedMSBuildEditorConfig.editorconfig
-H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\net472\PrestigeManager.AssemblyInfoInputs.cache
-H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\net472\PrestigeManager.AssemblyInfo.cs
-H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\net472\PrestigeManager.csproj.CoreCompileInputs.cache
-H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\bin\Debug\net472\PrestigeManager.dll
-H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\bin\Debug\net472\PrestigeManager.pdb
-H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\net472\PrestigeManager.dll
-H:\SPTarkov-4.0_Development\Development\PrestigeManager\src\obj\Debug\net472\PrestigeManager.pdb
